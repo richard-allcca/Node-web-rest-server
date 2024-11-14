@@ -1,12 +1,35 @@
+import http from 'http';
 import fs from 'fs';
-import http2 from 'http2';
 
-const server = http2.createSecureServer({
-  key: fs.readFileSync('./keys/server.key'),
-  cert: fs.readFileSync('./keys/server.crt')
-},(req, res) => {
+const server = http.createServer((req, res) => {
 
   console.log(req.url)
+
+  // SECTION - Ejemplo de respuesta básica
+
+  // const output = {
+  //   name: 'John',
+  //   age: 30,
+  //   city: 'New York'
+  // }
+
+  // res.write(JSON.stringify(output))
+
+  // res.end()
+
+  // SECTION - Ejemplo de respuesta con archivo html
+
+  // if (req.url === '/'){
+  //   const htmlFile = fs.readFileSync('./public/index.html', 'utf-8')
+  //   res.writeHead(200, {'Content-Type': 'text/html'})
+  //   res.end(htmlFile)
+  // } else {
+  //   const htmlFile404 = fs.readFileSync('./public/404.html', 'utf-8')
+  //   res.writeHead(404, {'Content-Type': 'text/html'})
+  //   res.end(htmlFile404)
+  // }
+
+  // SECTION - Ejemplo de como responder con html css y javascript
 
   if (req.url === '/'){
     const htmlFile = fs.readFileSync('./public/index.html', 'utf-8')
