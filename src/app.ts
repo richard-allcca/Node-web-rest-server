@@ -1,5 +1,4 @@
 
-import { IRouter, Router } from 'express';
 import { envs } from './config/envs';
 import { AppRoutes } from './presentation/routes';
 import { Server } from './presentation/server';
