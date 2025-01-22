@@ -28,3 +28,18 @@ En window busca el openssl que seria algo asi: C:\Program Files\Git\usr\bin
 ```
 
 > NOTA - para correr en local http2 necesitas usar <https://localhost:8080> y si aparece el mensaje de sitio no seguro 'continuar'
+
+## RestServer + PostgresSQL
+
+Verificar las variables de entorno
+Levantar la base de datos con 'docker compose up -d'
+
+### Prisma
+
+[Prisma documentación](https://www.prisma.io/docs/getting-started/quickstart-sqlite)
+
+```bash
+  npm install prisma --save-dev
+  npx prisma init --datasource-provider postgresql
+  npx prisma migrate dev --name init
+```

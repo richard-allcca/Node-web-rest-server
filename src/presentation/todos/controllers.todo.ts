@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { prisma } from "../../data/postgres";
 
 const todos = [
   { id: 1, title: 'Todo 1', description: 'Description 1', createAt: new Date() },
@@ -34,23 +35,21 @@ export class TodoController {
     res.json(todo);
   };
 
-  public createTodo = (req: Request, res: Response) => {
+  public createTodo = async (req: Request, res: Response) => {
     const { title, description } = req.body;
+
+    const todo = await prisma.todo.create({
+      data: {
+        text: title,
+        completedAt: new Date()
+      }
+    });
 
     if (!title || !description) {
       res.status(400).json({ error: 'Title and description are required' });
     }
 
-    const newTodo = {
-      id: todos.length + 1,
-      title,
-      description,
-      createAt: new Date()
-    };
-
-    todos.push(newTodo);
-
-    res.status(201).json(newTodo);
+    res.status(201).json(todo);
   };
 
   public updateTodo = (req: Request, res: Response) => {
