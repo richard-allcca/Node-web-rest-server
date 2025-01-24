@@ -43,3 +43,13 @@ Levantar la base de datos con 'docker compose up -d'
   npx prisma init --datasource-provider postgresql
   npx prisma migrate dev --name init
 ```
+
+### Base de datos en la nube
+
+- Para desplegar o crear las tablas de este proyecto en una db en la nube.
+- Debes haber creado y obtenido la url de conexión y agregar o reemplazar la del .env 'POSTGRES_URL'
+- luego debes crear un script en el package.json para la migración
+
+```json
+  "prisma:migrate:prod": "prisma migrate deploy"
+```
