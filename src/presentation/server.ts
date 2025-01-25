@@ -23,9 +23,8 @@ export class Server {
 
   async start(){
 
-    // Middleware serialize to row json
+    // Middlewares
     this.app.use(express.json());
-    // Middleware serialize to form (x-www-form-urlencoded)
     this.app.use(express.urlencoded({ extended: true }));
 
     // Public folder
