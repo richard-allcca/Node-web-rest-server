@@ -8,6 +8,9 @@ import { GetTodo } from "../../domain/use-cases/todo/get-todo";
 import { GetTodos } from "../../domain/use-cases/todo/get-todos";
 import { UpdateTodo } from './../../domain/use-cases/todo/update-todo';
 
+/**
+ * TodoController con casos de uso e inyección de dependencias (DI) - Usa casos de uso
+ */
 export class TodoController {
 
   constructor(

@@ -4,6 +4,7 @@ import { CreateTodoDto } from "../../domain/dtos/todos/create-todo.dto";
 import { UpdateTodoDto } from "../../domain/dtos/todos/update-todo.dto";
 import { TodoRepository } from "../../domain/repository/todo.repository";
 
+// TodoController con patron de diseño DDD - Usa directamente el repositorio
 export class TodoController {
 
   constructor(
